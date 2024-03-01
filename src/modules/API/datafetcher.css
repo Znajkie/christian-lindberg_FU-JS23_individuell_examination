@@ -1,0 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgb(252, 213, 219);
+    color: black;
+}
+
+.coffee-wrapper {
+    background-color: white;
+}
+
+/* .coffee__ul {} */
+
+.coffee__li {
+    list-style: none;
+}
+
+.coffee__menu {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    width: 30rem;
+}
+
+.coffee__price {
+    justify-content: space-between;
+}
+
+.dots {
+    font-size: small;
+    color: rgba(56, 56, 56, 0.637);
+}
+.title-with-dots {
+display: flex; /* This line is crucial */
+  align-items: center;
+    color: black;
+}
+
+
+.title-with-dots::after {
+  content: '';
+
+  flex-grow: 1;
+  margin-right: 10px;
+  background: repeating-linear-gradient(
+    to right,
+    currentColor,
+    currentColor 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  background-position: 0 50%;
+  background-size: 4px 1px;
+  background-repeat: repeat-x;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
