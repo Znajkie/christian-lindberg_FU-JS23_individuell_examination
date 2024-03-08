@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './navmenu.css';
-import NavIcon from '../assets/navicon.svg';
-import CloseBtn from '../assets/close.svg'
+import NavIcon from '../../assets/navicon.svg';
+import CloseBtn from '../../assets/close.svg'
 
 const NavMenu = () => {
   const [showOverlay, setShowOverlay] = useState(false);

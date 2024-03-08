@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { useState } from 'react';
-import NavMenu from './NavMenu';
-import headerImg from '../assets/header.svg'
-import droneImg from '../assets/drone.svg'
+import NavMenu from '../../modules/navMenu/NavMenu';
+import headerImg from '../../assets/header.svg';
+import droneImg from '../../assets/drone.svg';
 import './profile.css';
 import { useJwt } from 'react-jwt';
 const token = '';
@@ -17,11 +17,7 @@ const Profile = () => {
     e.preventDefault();
 
     if (gdprConsent) {
-
-    }
-
-    else {
-        
+    } else {
     }
 
     // Handle the login logic here

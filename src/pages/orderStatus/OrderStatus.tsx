@@ -1,10 +1,10 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import NavMenu from './NavMenu';
-import profileImg from '../assets/Profile.svg'
-import headerImg from '../assets/header.svg'
-import './orderstatus.css'
+import NavMenu from '../../modules/navMenu/NavMenu';
+import profileImg from '../../assets/Profile.svg';
+import headerImg from '../../assets/header.svg';
+import './orderstatus.css';
 
 const OrderStatus = () => {
   const location = useLocation();
@@ -34,4 +34,3 @@ const OrderStatus = () => {
 };
 
 export default OrderStatus;
-

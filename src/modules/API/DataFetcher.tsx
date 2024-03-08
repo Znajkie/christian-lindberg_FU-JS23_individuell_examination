@@ -3,8 +3,8 @@ import { useShopStore } from '../../Store/counter';
 import { useCountStore } from '../../Store/counter';
 import header from '../../assets/header.svg';
 import footer from '../../assets/footer.svg';
-import addButton from '../../assets/add.svg'
-import NavMenu from '../../pages/NavMenu';
+import addButton from '../../assets/add.svg';
+import NavMenu from '../navMenu/NavMenu';
 import './datafetcher.css';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';
 
@@ -34,7 +34,6 @@ const DataFetcher: React.FC = () => {
 
   const { increment } = useCountStore();
 
-
   const handleAddClick = (id) => {
     addToShoppingList(id);
     increment();
@@ -62,14 +61,14 @@ const DataFetcher: React.FC = () => {
     fetchData();
   }, []);
 
-const setMenuItems = useShopStore((state) => state.setMenuItems);
+  const setMenuItems = useShopStore((state) => state.setMenuItems);
 
-useEffect(() => {
-  if (data) {
-    // Assuming `data.menu` is the array of MenuItem you fetched
-    setMenuItems(data.menu);
-  }
-}, [data, setMenuItems]);
+  useEffect(() => {
+    if (data) {
+      // Assuming `data.menu` is the array of MenuItem you fetched
+      setMenuItems(data.menu);
+    }
+  }, [data, setMenuItems]);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -79,7 +78,7 @@ useEffect(() => {
     <div className="coffee-wrapper">
       <NavMenu />
       <img src={header} alt="Header" />
-        <ShoppingCart />
+      <ShoppingCart />
       <h1 className="coffee__header">Meny</h1>
       {data && (
         <ul className="coffee__ul">
@@ -87,7 +86,9 @@ useEffect(() => {
             <li className="coffee__li" key={id}>
               <div className="coffee__menu">
                 <button
-                  className="add-button"onClick={() => handleAddClick(id)}>
+                  className="add-button"
+                  onClick={() => handleAddClick(id)}
+                >
                   <img src={addButton} alt="Add" />
                 </button>
                 <div className="title-wrapper">

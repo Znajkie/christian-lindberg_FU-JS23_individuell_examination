@@ -1,13 +1,11 @@
 import React from 'react';
-import { useShopStore } from '../Store/counter';
+import { useShopStore } from '../../Store/counter';
 import './cart.css';
-import postOrder from '../modules/API/PostReq';
-import Dots from '../modules/Dots/Dots';
+import postOrder from '../API/PostReq';
+import Dots from '../Dots/Dots';
 import { useNavigate } from 'react-router-dom';
 
 const Cart: React.FC<{ toggleOverlay?: () => void }> = ({ toggleOverlay }) => {
-  
-
   const {
     shoppingList,
     menuItems,
@@ -22,19 +20,21 @@ const Cart: React.FC<{ toggleOverlay?: () => void }> = ({ toggleOverlay }) => {
     decrementItemQuantity: state.decrementItemQuantity,
   }));
 
-const navigate = useNavigate();
-   
+  const navigate = useNavigate();
+
   const handleCheckout = () => {
     postOrder(
       shoppingList, // The cart items
       menuItems, // Full menu items
-      
-      (data) => {console.log('Checkout successful:', data);
-       navigate('/checkout', {
-         state: { eta: data.eta, orderNr: data.orderNr },
-       });
+
+      (data) => {
+        console.log('Checkout successful:', data);
+        navigate('/checkout', {
+          state: { eta: data.eta, orderNr: data.orderNr },
+        });
       },
-      (error) => {console.error('Checkout failed:', error);
+      (error) => {
+        console.error('Checkout failed:', error);
       }
     );
   };
@@ -83,7 +83,7 @@ const navigate = useNavigate();
             <Dots /> {getTotalPrice()} kr
           </span>
         </div>
-        <p className='total-price__p'>inkl moms + drönarleverans</p>
+        <p className="total-price__p">inkl moms + drönarleverans</p>
         <button className="checkout-button" onClick={handleCheckout}>
           Take my money!
         </button>

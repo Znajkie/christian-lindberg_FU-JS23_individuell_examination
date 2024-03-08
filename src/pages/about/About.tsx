@@ -1,19 +1,19 @@
 import React from 'react';
-import header from '../assets/header.svg';
-import footer from '../assets/footer.svg';
-import '../pages/about.css';
-import NavMenu from './NavMenu';
-import Profile from '../modules/Profile';
+import header from '../../assets/header.svg';
+import footer from '../../assets/footer.svg';
+import './about.css';
+import NavMenu from '../../modules/navMenu/NavMenu';
+import Profile from '../../modules/Profile';
 
 const About = () => {
   return (
     <div className="about-wrapper">
-      <div className='navMenu'>
+      <div className="navMenu">
         <NavMenu />
       </div>
       <img src={header} alt="Header" />
       <article>
-        <h1>Vårt kaffe</h1>
+        <h1 className="about-title">Vårt kaffe</h1>
         <p className="about__p-big">
           Pumpkin spice mug, barista cup, sit macchiato, kopi-luwak, doppio,
           grounds dripper, crema, strong whipped, variety extra iced id lungo

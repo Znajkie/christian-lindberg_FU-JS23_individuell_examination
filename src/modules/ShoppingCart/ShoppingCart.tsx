@@ -1,11 +1,10 @@
-import React from 'react'
+import React from 'react';
 import cart from '../../assets/bag.svg';
 import cartbg from '../../assets/cartbg.png';
 import { useShopStore } from '../../Store/counter';
 import { useState } from 'react';
-import Cart from '../../pages/Cart';
-import './ShoppingCart.css'
-
+import Cart from '../cart/Cart';
+import './ShoppingCart.css';
 
 const ShoppingCart = () => {
   const [showCart, setShowCart] = useState(false);

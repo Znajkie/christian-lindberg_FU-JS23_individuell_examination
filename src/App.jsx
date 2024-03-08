@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DataFetcher from './modules/API/DataFetcher';
-import LandingPage from './modules/Landing/Landing';
-import About from './pages/About'
-import NavMenu from './pages/NavMenu';
-import Cart from './pages/Cart'
-import Checkout from './pages/Checkout'
-import Profile from './pages/profile'
-import Orderstatus from './pages/OrderStatus'
+import LandingPage from './pages/landing/Landing';
+import About from './pages/about/About';
+import NavMenu from './modules/navMenu/NavMenu';
+import Cart from './modules/cart/Cart';
+import Checkout from './pages/delivery/Delivery';
+import Profile from './pages/profile/profile';
+import Orderstatus from './pages/orderStatus/OrderStatus';
 import './App.css';
 
 function App() {
