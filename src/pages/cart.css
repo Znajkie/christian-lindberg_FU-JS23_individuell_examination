@@ -5,6 +5,15 @@
   font-style: normal;
 }
 
+
+@font-face {
+  font-family: 'Work-Sans';
+  src: url('../assets/Font/Work_Sans/WorkSans-VariableFont_wght.ttf')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .cart__ul {
 margin-left: 2rem;
 
@@ -15,6 +24,7 @@ margin-left: 2rem;
   display: flex;
   align-items: center;
   text-align: start;
+  padding-top: 1rem;
   justify-content: space-between;
   margin-bottom: 10px;
 }
@@ -22,9 +32,9 @@ margin-left: 2rem;
 .item-title {
   font-family: 'PT-serif';
   font-size: 20px;
-  font-weight: 700;
+  /* font-weight: 700; */
   flex-grow: 1;
-  width: 6.5rem;
+  /* width: 6.5rem; */
   color: #2F2926;
 }
 
@@ -63,17 +73,10 @@ li {
 }
 
 .item-price {
+  font-family: 'Work-Sans';
+  font-size: 12px;
   display: flex;
   margin-top: -1.2rem;
-
-
-}
-
-.total-price {
-  display: flex;
-  align-items: end;
-  justify-content: flex-end;
-  justify-content: space-between;
 }
 
 .cart-container {
@@ -133,10 +136,36 @@ li {
   font-weight: 700;
 }
 
-
 .arrow-down {
   font-size: 16px;
   display: inline-block;
   transform: rotate(180deg);
   font-weight: 700;
+}
+
+/* section total */
+
+.total-price {
+  padding-top: 4rem;
+  font-family: 'PT-serif';
+  font-weight: 700;
+  font-size: 23px;
+  width: 18rem;
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.total-price__title {
+ font-family: 'PT-serif';
+ font-size: 23px;
+ font-weight: 700;
+}
+
+.total-price__p {
+  font-size: 12px;
+  font-family: 'Work-Sans';
+  padding-left: 1rem;
+  align-self: start;
 }

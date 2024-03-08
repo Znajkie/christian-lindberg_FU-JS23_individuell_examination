@@ -1,7 +1,9 @@
+
 .profile-wrapper {
   position: relative;
   width: 23.4rem;
   height: 40rem;
+  margin-top: -5.8rem;
   background-color: #2f2926;
 }
 
@@ -11,7 +13,7 @@
   align-items: center;
   justify-content: center;
   justify-content: space-evenly;
-  background-color: rgb(255, 223, 230);
+  background-color: rgb(253, 235, 220);
   width: 90%;
   height: 34rem;
 }

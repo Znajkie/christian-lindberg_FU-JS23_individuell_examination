@@ -50,8 +50,8 @@ const navigate = useNavigate();
               (menuItem) => menuItem.id === cartItem.id
             );
             return (
-              <>
-                <li className="cart-item" key={cartItem.id}>
+              <React.Fragment key={cartItem.id}>
+                <li className="cart-item">
                   <div className="item-title">{itemDetail?.title}</div>
                   <div className="item-quantity-sum">
                     <Dots />
@@ -59,17 +59,13 @@ const navigate = useNavigate();
                       <button
                         onClick={() => incrementItemQuantity(cartItem.id)}
                       >
-                        <span className="arrow-up" key={'down-up'}>
-                          ^
-                        </span>
+                        <span className="arrow-up">^</span>
                       </button>
                       <span className="quantity">{cartItem.quantity}</span>
                       <button
                         onClick={() => decrementItemQuantity(cartItem.id)}
                       >
-                        <span className="arrow-down" key={'down-arrow'}>
-                          ^
-                        </span>
+                        <span className="arrow-down">^</span>
                       </button>
                     </div>
                   </div>
@@ -77,7 +73,7 @@ const navigate = useNavigate();
                 <span className="item-price">
                   {cartItem.quantity * (itemDetail?.price || 0)} kr
                 </span>
-              </>
+              </React.Fragment>
             );
           })}
         </ul>
@@ -87,6 +83,7 @@ const navigate = useNavigate();
             <Dots /> {getTotalPrice()} kr
           </span>
         </div>
+        <p className='total-price__p'>inkl moms + drönarleverans</p>
         <button className="checkout-button" onClick={handleCheckout}>
           Take my money!
         </button>
