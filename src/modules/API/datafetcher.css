@@ -1,60 +1,106 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    background-color: rgb(252, 213, 219);
-    color: black;
+@font-face {
+  font-family: 'PT-serif';
+  src: url('../../assets/Font/PT_Serif/PTSerif-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
+
 
 .coffee-wrapper {
-    background-color: white;
+  position: relative;
+  background-color: rgb(255, 223, 230);
+  width: 23.4rem;
+  height: 49rem;
 }
 
-/* .coffee__ul {} */
+.add-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.coffee__ul {
+  width: 20rem;
+}
 
 .coffee__li {
-    list-style: none;
+  list-style: none;
+  width: 20rem;
 }
 
 .coffee__menu {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: space-between;
-    width: 30rem;
-}
-
-.coffee__price {
-    justify-content: space-between;
-}
-
-.dots {
-    font-size: small;
-    color: rgba(56, 56, 56, 0.637);
-}
-.title-with-dots {
-display: flex; /* This line is crucial */
+  display: flex;
   align-items: center;
-    color: black;
+  width: 22rem;
+  margin-bottom: -1rem;
 }
 
+.cart-wrapper {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
+
+.cart {
+  position: absolute;
+  top: 35%;
+  right: 40%;
+}
+
+.cart-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 15%;
+  right: 18%;
+  text-align: center;
+  color: white;
+  background-color: rgb(255, 102, 31);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+/*! Checkout  */
+
+.title-wrapper {
+  display: flex;
+  width: 20rem;
+  justify-content: space-between;
+  position: relative;
+}
+
+.title-with-dots {
+  font-family: 'PT-serif';
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-right: 0.2em;
+  position: relative;
+}
 
 .title-with-dots::after {
   content: '';
-
-  flex-grow: 1;
-  margin-right: 10px;
-  background: repeating-linear-gradient(
-    to right,
-    currentColor,
-    currentColor 1px,
-    transparent 1px,
-    transparent 4px
-  );
-  background-position: 0 50%;
-  background-size: 4px 1px;
-  background-repeat: repeat-x;
-  white-space: nowrap;
+  position: absolute;
+  top: 50%; /* Center the dots vertically */
+  left: 0; 
+  right: 0; 
+  border-bottom: 1px dotted #000; 
   overflow: hidden;
-  text-overflow: ellipsis;
+  margin-left: auto; /* Push the dots to the end of the title */
+  margin-right: 2.5em; /* Space for the price */
+  z-index: 0;
 }
+
+.coffee__price {
+  position: absolute;
+  right: 0; /* Align the price to the right */
+  top: 50%; /* Center the price vertically */
+  transform: translateY(-50%); /* Adjust vertical alignment */
+  z-index: 2; /* Ensures the price is above the dotted line */
+}
+

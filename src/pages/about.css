@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'PT-serif';
+  src: url('../assets/Font/PT_Serif/PTSerif-Bold.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work-Sans';
+  src: url('../assets/Font/Work_Sans/WorkSans-VariableFont_wght.ttf')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.about-wrapper {
+  width: 23.43rem;
+  height: 56rem;
+  text-align: start;
+  margin: 1rem;
+  background-color: rgb(252, 215, 221);
+}
+
+article {
+  padding-left: 1rem;
+  width: 20rem;
+}
+
+article h1 {
+  color: #2f2926;
+  font-family: 'PT-serif';
+}
+
+.about p {
+  font-family: 'Work-Sans';
+}
+
+.about__p-section {
+  padding-top: 1rem;
+  color: #2f2926;
+}
+
+.about__p-big {
+  color: #2f2926;
+  font-weight: 700;
+}
+
+.navMenu {
+  position: absolute;
+}

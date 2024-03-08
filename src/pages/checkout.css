@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'PT-serif';
+  src: url('../assets/Font/PT_Serif/PTSerif-Bold.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work-Sans';
+  src: url('../assets/Font/Work_Sans/WorkSans-VariableFont_wght.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.order-wrapper {
+  background-color: rgba(230, 108, 28, 0.959);
+  width: 23rem;
+  height: 40rem;
+}
+
+.order-num {
+  
+    color: rgba(255, 255, 255, 0.700);
+}
+
+.order-title, .order-eta {
+    color: white;
+}
+
+.order-btn {
+  background-color: white;
+  border-radius: 2rem;
+  border-style: none;
+  width: 12rem;
+  height: 3.5rem;
+  font-size: 24px;
+}
+
+.order-btn, .order-title{
+    font-family: 'PT-serif';
+}
+
+.order-eta, .order-num {
+    font-family: 'Work-Sans';
+}

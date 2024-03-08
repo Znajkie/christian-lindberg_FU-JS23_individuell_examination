@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'PT-serif';
+  src: url('../assets/Font/PT_Serif/PTSerif-Bold.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  padding-top: 3rem;
+  justify-content: center;
+}
+
+.overlay-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 375px;
+  min-height: 500px;
+  background-color: #2f2926;
+}
+
+.close-btn {
+  position: absolute;
+  top: 2%;
+  left: 4%;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.overlay-link {
+  display: block;
+  margin: 45px 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+.overlay-link:hover {
+  color: pink;
+}
+
+.overlay-content {
+  font-family: 'PT-serif';
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.NavIcon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+}
+
+/* Lines between Links */
+
+.overlay-link {
+  margin: 20px 0;
+  position: relative;
+}
+
+.overlay-link:not(:last-child):after {
+  content: '';
+  width: 50px;
+  height: 1px;
+  background-color: #979797;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
