@@ -4,6 +4,7 @@ import cartbg from '../../assets/cartbg.png';
 import { useShopStore } from '../../Store/counter';
 import { useState } from 'react';
 import Cart from '../../pages/Cart';
+import './ShoppingCart.css'
 
 
 const ShoppingCart = () => {

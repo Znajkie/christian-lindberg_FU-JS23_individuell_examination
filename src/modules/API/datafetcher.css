@@ -39,33 +39,6 @@
   margin-bottom: -1rem;
 }
 
-.cart-wrapper {
-  position: absolute;
-  top: 0%;
-  right: 0%;
-}
-
-.cart {
-  position: absolute;
-  top: 35%;
-  right: 40%;
-}
-
-.cart-count {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 15%;
-  right: 18%;
-  text-align: center;
-  color: white;
-  background-color: rgb(255, 102, 31);
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-}
-
 /*! Checkout  */
 
 .title-wrapper {

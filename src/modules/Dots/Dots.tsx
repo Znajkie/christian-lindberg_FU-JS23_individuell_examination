@@ -3,7 +3,7 @@ import './dots.css'
 
 const Dots = () => {
   return (
-    <span className='dots'></span>
+    <div className='dots'></div>
   )
 }
 

@@ -1,0 +1,81 @@
+.profile-wrapper {
+  position: relative;
+  width: 23.4rem;
+  height: 40rem;
+  background-color: #2f2926;
+}
+
+.profile__login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+  background-color: rgb(255, 223, 230);
+  width: 90%;
+  height: 34rem;
+}
+
+.profile__container {
+  position: absolute;
+  top: 5rem;
+  display: flex;
+  justify-content: center;
+  height: 40rem;
+}
+
+.form-control {
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 0.3rem;
+  width: 90%;
+  height: 2.4rem;
+  margin: 0.2rem;
+}
+
+.btn-primary {
+  cursor: pointer;
+  color: white;
+  background-color: #2f2926;
+  border-radius: 2rem;
+  border-style: none;
+  width: 14rem;
+  height: 3.5rem;
+  font-size: 24px;
+}
+
+.checkbox-container {
+  display: flex;
+  padding: 1rem;
+}
+
+.checkbox-container input[type='checkbox'] {
+  display: none;
+}
+
+.checkbox-container .checkmark {
+  cursor: pointer;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  background-color: transparent;
+  position: relative;
+}
+
+.checkbox-container input[type='checkbox']:checked + .checkmark {
+  background-color: #0e927d;
+  border-color: rgb(0, 0, 0); /* Optional: change border color to match */
+}
+
+.profile__login .form-title {
+  text-align: left;
+  margin-left: 1rem;
+}
+
+form {
+    width: 22rem;
+    padding: 1rem;
+}

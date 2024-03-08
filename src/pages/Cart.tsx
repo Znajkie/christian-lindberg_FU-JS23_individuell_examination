@@ -43,38 +43,49 @@ const navigate = useNavigate();
     <>
       {toggleOverlay && <div className="overlay"></div>}
       <div className="cart-container">
-        <h1>Din beställning</h1>
-        <ul>
+        <h1 className="cart__title">Din beställning</h1>
+        <ul className="cart__ul">
           {shoppingList.map((cartItem) => {
             const itemDetail = menuItems.find(
               (menuItem) => menuItem.id === cartItem.id
             );
             return (
-              <li className="cart-item" key={cartItem.id}>
-                <div className="item-title">{itemDetail?.title}</div>
-                <div className="item-quantity-price">
-                  <Dots />
-                  <div className="quantity-controls">
-                    <button onClick={() => incrementItemQuantity(cartItem.id)}>
-                      &#129169;
-                    </button>
-                    <span className="quantity">{cartItem.quantity}</span>
-                    <button onClick={() => decrementItemQuantity(cartItem.id)}>
-                      &#129171;
-                    </button>
+              <>
+                <li className="cart-item" key={cartItem.id}>
+                  <div className="item-title">{itemDetail?.title}</div>
+                  <div className="item-quantity-sum">
+                    <Dots />
+                    <div className="quantity-controls">
+                      <button
+                        onClick={() => incrementItemQuantity(cartItem.id)}
+                      >
+                        <span className="arrow-up" key={'down-up'}>
+                          ^
+                        </span>
+                      </button>
+                      <span className="quantity">{cartItem.quantity}</span>
+                      <button
+                        onClick={() => decrementItemQuantity(cartItem.id)}
+                      >
+                        <span className="arrow-down" key={'down-arrow'}>
+                          ^
+                        </span>
+                      </button>
+                    </div>
                   </div>
-
-                  <span className="item-price">
-                    {cartItem.quantity * (itemDetail?.price || 0)} kr
-                  </span>
-                </div>
-              </li>
+                </li>
+                <span className="item-price">
+                  {cartItem.quantity * (itemDetail?.price || 0)} kr
+                </span>
+              </>
             );
           })}
         </ul>
         <div className="total-price">
-          Total:
-          <Dots /> {getTotalPrice()} kr
+          <span className="total-price__title">Total:</span>
+          <span>
+            <Dots /> {getTotalPrice()} kr
+          </span>
         </div>
         <button className="checkout-button" onClick={handleCheckout}>
           Take my money!

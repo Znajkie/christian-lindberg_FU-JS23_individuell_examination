@@ -5,6 +5,8 @@ import About from './pages/About'
 import NavMenu from './pages/NavMenu';
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
+import Profile from './pages/profile'
+import Orderstatus from './pages/OrderStatus'
 import './App.css';
 
 function App() {
@@ -16,7 +18,9 @@ function App() {
         <Route path="/datafetcher" element={<DataFetcher />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout/>}/>
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/orderstatus" element={<Orderstatus />} />
       </Routes>
     </Router>
   );

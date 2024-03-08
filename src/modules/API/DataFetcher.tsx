@@ -5,7 +5,6 @@ import header from '../../assets/header.svg';
 import footer from '../../assets/footer.svg';
 import addButton from '../../assets/add.svg'
 import NavMenu from '../../pages/NavMenu';
-// import Dots from '../Dots/Dots';
 import './datafetcher.css';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';
 
@@ -22,7 +21,7 @@ interface ApiResponse {
   success: boolean;
   menu: MenuItem[];
 }
-// const API_POST_URL = 'https://airbean-api-xjlcn.ondigitalocean.app/api/beans/order';
+
 const API_URL = 'https://airbean-api-xjlcn.ondigitalocean.app/api/beans';
 
 const DataFetcher: React.FC = () => {

@@ -1,0 +1,15 @@
+.history-wrapper {
+  position: relative;
+  width: 23.4rem;
+  height: 40rem;
+  background-color: #2f2926;
+}
+
+.history__name, .history__epost, .history__section{
+    color:white
+}
+
+h1 {
+    font-family: 'PT-serif';
+}
+

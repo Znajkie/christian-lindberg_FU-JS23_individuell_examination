@@ -13,13 +13,16 @@
 }
 
 .order-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   background-color: rgba(230, 108, 28, 0.959);
   width: 23rem;
   height: 40rem;
 }
 
 .order-num {
-  
     color: rgba(255, 255, 255, 0.700);
 }
 
@@ -43,3 +46,5 @@
 .order-eta, .order-num {
     font-family: 'Work-Sans';
 }
+
+

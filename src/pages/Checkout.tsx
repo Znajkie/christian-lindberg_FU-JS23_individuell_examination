@@ -1,11 +1,21 @@
-import DroneImg from '../assets/Group 5.svg'
+import DroneImg from '../assets/droneB.svg'
 import './checkout.css'
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 const Checkout = () => {
   const location = useLocation();
   const { eta, orderNr } = location.state || {};
+
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate('/profile');
+  };
+
   return (
     <>
       <div className="order-wrapper">
@@ -13,7 +23,7 @@ const Checkout = () => {
         <img src={DroneImg}></img>
         <h1 className='order-title'>Din beställning är påväg!</h1>
         <div className="order-eta">{eta}minuter</div>
-        <button className="order-btn">Ok, cool!</button>
+        <button className="order-btn" onClick={handleNavigate}>Ok, cool!</button>
       </div>
     </>
   );
