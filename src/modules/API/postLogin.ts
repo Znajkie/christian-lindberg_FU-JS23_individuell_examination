@@ -1,5 +1,8 @@
-const handleLogin = async (username : string, password : string) => {
+import TokenStore from '../../Store/TokenStore'; //
+
+const postLogin = async (username: string, password: string) => {
   try {
+    
     const response = await fetch(
       'https://airbean-api-xjlcn.ondigitalocean.app/api/user/login',
       {
@@ -16,13 +19,14 @@ const handleLogin = async (username : string, password : string) => {
     }
 
     const data = await response.json();
-    const jwt : string= data.token;
-
-    // You would typically store the JWT in localStorage or sessionStorage
+    const jwt: string = data.token;
+    TokenStore.setState({ token: jwt });
     localStorage.setItem('jwt', jwt);
 
-    // Do something after successful login
+    window.location.href = '/orderstatus';
   } catch (error) {
     console.error('An error occurred:', error);
   }
 };
+
+export default postLogin;

@@ -1,30 +1,36 @@
 import React from 'react';
 import { useState } from 'react';
 import NavMenu from '../../modules/navMenu/NavMenu';
+import postLogin from '../../modules/API/postLogin';
 import headerImg from '../../assets/header.svg';
 import droneImg from '../../assets/drone.svg';
 import './profile.css';
-import { useJwt } from 'react-jwt';
-const token = '';
+import useUserStore from '../../Store/userStore';
 
-const Profile = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+const Profile: React.FC = () => {
+ const { name, setName, password, setPassword } = useUserStore();
   const [gdprConsent, setGdprConsent] = useState(false);
 
-  const handleSubmit = (e) => {
-    const { decodedToken, isExpired } = useJwt(token);
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setName(e.name)
+  setPassword(e.password)
 
-    if (gdprConsent) {
-    } else {
-    }
+  if (!gdprConsent) {
+    console.log("GDPR consent required");
+    return; // or show an error message
+  }
 
-    // Handle the login logic here
-    // This would include creating the JWT and handling the API call
-    // Remember to check the gdprConsent before proceeding
+  try {
+    await postLogin(name, password);
+    console.log('Login successful');
+    // Navigate to another page or show success message
+  } catch (error) {
+    console.error('Login failed', error);
+    // Show error message
+  }
+    console.log('Login with', name, password, gdprConsent);
 
-    console.log('Login with', name, email, gdprConsent);
   };
 
   return (
@@ -36,8 +42,7 @@ const Profile = () => {
           <img src={droneImg} className="profile__logo" alt="Profile Logo" />
           <h1 className="profile__title">Välkommen till AirBean-familjen!</h1>
           <p>
-            Genom att skapa ett konto nedan kan du spara och se din
-            orderhistorik.
+            Vänligen logga in för att kunna se din orderhistorik!
           </p>
 
           <form onSubmit={handleSubmit}>
@@ -54,8 +59,8 @@ const Profile = () => {
               type="email"
               className="form-control"
               placeholder=""
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <label className="checkbox-container">
               <input

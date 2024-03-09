@@ -31,6 +31,9 @@ const NavMenu = () => {
             <Link to="/profile" className="overlay-link">
               Min profil
             </Link>
+            <Link to="/signup" className="overlay-link">
+              Skapa användare
+            </Link>
             <Link to="/orderstatus" className="overlay-link">
               Orderstatus
             </Link>

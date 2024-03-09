@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'PT-serif';
+  src: url('../../assets/Font/PT_Serif/PTSerif-Regular.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work-Sans';
+  src: url('../../assets/Font/Work_Sans/WorkSans-VariableFont_wght.ttf')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .profile-wrapper {
   position: relative;
@@ -36,6 +50,17 @@
 }
 
 .btn-primary {
+  cursor: pointer;
+  color: white;
+  background-color: #2f2926;
+  border-radius: 2rem;
+  border-style: none;
+  width: 14rem;
+  height: 3.5rem;
+  font-size: 24px;
+}
+
+.btn-secondary {
   cursor: pointer;
   color: white;
   background-color: #2f2926;
