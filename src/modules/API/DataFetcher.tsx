@@ -7,20 +7,7 @@ import addButton from '../../assets/add.svg';
 import NavMenu from '../navMenu/NavMenu';
 import './datafetcher.css';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';
-
-interface MenuItem {
-  id: string;
-  title: string;
-  desc: string;
-  price: number;
-  count?: number;
-  increment?: number;
-}
-
-interface ApiResponse {
-  success: boolean;
-  menu: MenuItem[];
-}
+import {ApiResponse} from '../../interface/interface';
 
 const API_URL = 'https://airbean-api-xjlcn.ondigitalocean.app/api/beans';
 
@@ -28,13 +15,10 @@ const DataFetcher: React.FC = () => {
   const [data, setData] = useState<ApiResponse | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-
-  // Move the useShopStore hook call inside the component
   const addToShoppingList = useShopStore((state) => state.addToShoppingList);
-
   const { increment } = useCountStore();
 
-  const handleAddClick = (id) => {
+  const handleAddClick = (id: string) => {
     addToShoppingList(id);
     increment();
   };
@@ -65,7 +49,6 @@ const DataFetcher: React.FC = () => {
 
   useEffect(() => {
     if (data) {
-      // Assuming `data.menu` is the array of MenuItem you fetched
       setMenuItems(data.menu);
     }
   }, [data, setMenuItems]);

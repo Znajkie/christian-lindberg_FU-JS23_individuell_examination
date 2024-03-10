@@ -1,39 +1,36 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useShopStore } from '../../Store/counter';
-import './cart.css';
 import postOrder from '../API/PostReq';
 import Dots from '../Dots/Dots';
-import { useNavigate } from 'react-router-dom';
+import './cart.css';
+import { OrderResponseData, ShopStore } from '../../interface/interface'
 
-const Cart: React.FC<{ toggleOverlay?: () => void }> = ({ toggleOverlay }) => {
+interface CartProps {
+  toggleOverlay?: () => void;
+}
+
+const Cart: React.FC<CartProps> = ({ toggleOverlay }) => {
+  const navigate = useNavigate();
   const {
     shoppingList,
     menuItems,
     getTotalPrice,
     incrementItemQuantity,
     decrementItemQuantity,
-  } = useShopStore((state) => ({
-    shoppingList: state.shoppingList,
-    menuItems: state.menuItems,
-    getTotalPrice: state.getTotalPrice,
-    incrementItemQuantity: state.incrementItemQuantity,
-    decrementItemQuantity: state.decrementItemQuantity,
-  }));
-
-  const navigate = useNavigate();
+  } = useShopStore() as ShopStore; // Antag att `useShopStore` returnerar `ShopStore`
 
   const handleCheckout = () => {
     postOrder(
-      shoppingList, // The cart items
-      menuItems, // Full menu items
-
-      (data) => {
+      shoppingList,
+      menuItems,
+      (data: OrderResponseData) => {
         console.log('Checkout successful:', data);
         navigate('/checkout', {
           state: { eta: data.eta, orderNr: data.orderNr },
         });
       },
-      (error) => {
+      (error: Error) => {
         console.error('Checkout failed:', error);
       }
     );
