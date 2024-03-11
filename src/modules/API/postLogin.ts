@@ -1,8 +1,6 @@
-import TokenStore from '../../Store/TokenStore'; //
-
 const postLogin = async (username: string, password: string) => {
+
   try {
-    
     const response = await fetch(
       'https://airbean-api-xjlcn.ondigitalocean.app/api/user/login',
       {
@@ -20,7 +18,6 @@ const postLogin = async (username: string, password: string) => {
 
     const data = await response.json();
     const jwt: string = data.token;
-    TokenStore.setState({ token: jwt });
     localStorage.setItem('jwt', jwt);
 
     window.location.href = '/orderstatus';

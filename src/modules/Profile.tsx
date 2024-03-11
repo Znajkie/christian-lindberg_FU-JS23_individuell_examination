@@ -1,5 +1,6 @@
 import React from 'react'
 import profilImg from '../assets/profileface.svg'
+
 const Profile = () => {
   return (
     <div

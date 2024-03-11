@@ -8,7 +8,7 @@ import Checkout from './pages/delivery/Delivery';
 import Profile from './pages/profile/profile';
 import Orderstatus from './pages/orderStatus/OrderStatus';
 import HandleSignUp from './modules/handleSignUp/HandleSignUp';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (

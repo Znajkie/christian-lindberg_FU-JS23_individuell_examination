@@ -1,7 +1,7 @@
 import React from 'react';
 import header from '../../assets/header.svg';
 import footer from '../../assets/footer.svg';
-import './about.css';
+import './about.scss';
 import NavMenu from '../../modules/navMenu/NavMenu';
 import Profile from '../../modules/Profile';
 

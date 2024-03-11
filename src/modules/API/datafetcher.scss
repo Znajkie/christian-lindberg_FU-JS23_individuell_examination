@@ -1,0 +1,71 @@
+@import "../../abstracts/variables";
+@import '../../abstracts/fonts';
+
+.coffee-wrapper .overlay-content {
+transform: translate(-50%, -98%);
+}
+
+.coffee-wrapper {
+  position: relative;
+  background-color: $color-primary;
+  width: 23.4rem;
+  height: 49rem;
+  padding: 0;
+  margin: 0;
+}
+
+.add-button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.coffee__ul {
+  width: 20rem;
+}
+
+.coffee__li {
+  list-style: none;
+  width: 20rem;
+}
+
+.coffee__menu {
+  display: flex;
+  align-items: center;
+  width: 22rem;
+  margin-bottom: -1rem;
+}
+
+/*! Checkout  */
+
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.dotted-line {
+  flex-grow: 1;
+  border-bottom: 1px dotted #000;
+  margin: auto 10px;
+  align-self: center;
+}
+
+.title-with-dots {
+  font-family: 'PT-serif';
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-right: 0.2em;
+  position: relative;
+}
+
+.coffee__price {
+  margin-top: 1rem;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+

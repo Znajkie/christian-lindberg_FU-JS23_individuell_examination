@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './navmenu.css';
+import './navmenu.scss';
 import NavIcon from '../../assets/navicon.svg';
 import CloseBtn from '../../assets/close.svg'
 

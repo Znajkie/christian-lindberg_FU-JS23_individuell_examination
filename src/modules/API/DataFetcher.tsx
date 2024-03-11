@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useShopStore } from '../../Store/counter';
-import { useCountStore } from '../../Store/counter';
+import { useShopStore } from '../../Store/Store';
+import { useCountStore } from '../../Store/Store';
 import header from '../../assets/header.svg';
 import footer from '../../assets/footer.svg';
 import addButton from '../../assets/add.svg';
 import NavMenu from '../navMenu/NavMenu';
-import './datafetcher.css';
+import './datafetcher.scss';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';
-import {ApiResponse} from '../../interface/interface';
+import { ApiResponse } from '../../interface/interface';
 
 const API_URL = 'https://airbean-api-xjlcn.ondigitalocean.app/api/beans';
 
@@ -74,10 +74,11 @@ const DataFetcher: React.FC = () => {
                 >
                   <img src={addButton} alt="Add" />
                 </button>
-                <div className="title-wrapper">
-                  <span className="title-with-dots">{title}</span>
-                  <span className="coffee__price">{price} SEK</span>
-                </div>
+                <section className="title-wrapper">
+                  <div className="title-with-dots">{title}</div>
+                  <div className="dotted-line"></div>
+                  <div className="coffee__price">{price} SEK</div>
+                </section>
               </div>
               <p>{desc}</p>
             </li>

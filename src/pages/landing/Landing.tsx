@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './landing.css';
+import './landing.scss';
 import Logo from '../../assets/logo.png';
 import Backgroundleft from '../../assets/header-left.svg';
 import Backgroundright from '../../assets/header-right.svg';

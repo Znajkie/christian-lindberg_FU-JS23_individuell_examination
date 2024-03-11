@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import NavMenu from '../../modules/navMenu/NavMenu';
 import profileImg from '../../assets/Profile.svg';
 import headerImg from '../../assets/header.svg';
-import TokenStore from '../../Store/TokenStore';
-import './orderstatus.css';
-import useUserStore from '../../Store/userStore';
-
-
+import './orderstatus.scss';
+import {useUserStore} from '../../Store/userStore';
 
 interface UserHistoryRecord {
   total: number;
@@ -16,9 +13,9 @@ interface UserHistoryRecord {
 }
 
 const OrderStatus = () => {
-  const token = TokenStore((state) => state.token);
-  const location = useLocation();
-  const { orderNr } = location.state || {};
+  const { name, password } = useUserStore();
+  console.log('NAME PASSWORD:', name, password);
+
   const navigate = useNavigate();
 
   // Use state to store fetched data
@@ -31,7 +28,6 @@ const fetchUserHistory = async () => {
   try {
 
     const localStorageToken = localStorage.getItem('jwt');
-
     const response = await fetch(
       'https://airbean-api-xjlcn.ondigitalocean.app/api/user/history',
       {
@@ -46,9 +42,11 @@ const fetchUserHistory = async () => {
     if (!response.ok) {
       throw new Error('Du måste skapa en användare först');
     }
+
     const data = await response.json();
     setUserHistory(data.orderHistory);
     console.log('User history data:', data.orderHistory);
+    
   } catch (error) {
     setError(error.message);
     console.error('An error occurred:', error.message);
@@ -58,13 +56,11 @@ const fetchUserHistory = async () => {
 
   useEffect(() => {
     const localStorageToken = localStorage.getItem('jwt');
-    console.log('ORDER STATUS', localStorageToken);
+    console.log('TOKEN STATUS', localStorageToken);
     if (localStorageToken) {
       fetchUserHistory();
     }
   }, []);
-
-    const { name, password } = useUserStore(); //
 
 
   return (

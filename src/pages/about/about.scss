@@ -1,23 +1,15 @@
-@font-face {
-  font-family: 'PT-serif';
-  src: url('../../assets/Font/PT_Serif/PTSerif-Regular.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Work-Sans';
-  src: url('../../assets/Font/Work_Sans/WorkSans-VariableFont_wght.ttf')
-    format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+@import "../../abstracts/variables";
+@import '../../abstracts/fonts';
 
 .about-wrapper {
   width: 23.43rem;
   height: 56rem;
   text-align: start;
-  background-color:#F3E4E1
+  background-color: $color-primary
+}
+
+.about-wrapper .overlay-content {
+transform: translate(-50%, -107%);
 }
 
 article {

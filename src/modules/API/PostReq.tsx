@@ -33,7 +33,7 @@ const postOrder = async (
       'Content-Type': 'application/json',
     };
 
-    if (localStorageToken && localStorageToken !== '') {
+    if ( localStorageToken !== '' && null) {
       headers['Authorization'] = `Bearer ${localStorageToken}`;
     }
 

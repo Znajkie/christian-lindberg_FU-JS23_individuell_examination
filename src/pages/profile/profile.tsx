@@ -4,33 +4,28 @@ import NavMenu from '../../modules/navMenu/NavMenu';
 import postLogin from '../../modules/API/postLogin';
 import headerImg from '../../assets/header.svg';
 import droneImg from '../../assets/drone.svg';
-import './profile.css';
+import './profile.scss';
 import useUserStore from '../../Store/userStore';
 
 const Profile: React.FC = () => {
- const { name, setName, password, setPassword } = useUserStore();
+  const { name, setName, password, setPassword } = useUserStore();
   const [gdprConsent, setGdprConsent] = useState(false);
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setName(e.name)
-  setPassword(e.password)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  if (!gdprConsent) {
-    console.log("GDPR consent required");
-    return; // or show an error message
-  }
+    if (!gdprConsent) {
+      console.log('GDPR consent required');
+      return;
+    }
 
-  try {
-    await postLogin(name, password);
-    console.log('Login successful');
-    // Navigate to another page or show success message
-  } catch (error) {
-    console.error('Login failed', error);
-    // Show error message
-  }
+    try {
+      await postLogin(name, password);
+      console.log('Login successful');
+    } catch (error) {
+      console.error('Login failed', error);
+    }
     console.log('Login with', name, password, gdprConsent);
-
   };
 
   return (
@@ -41,9 +36,7 @@ const handleSubmit = async (e) => {
         <main className="profile__login">
           <img src={droneImg} className="profile__logo" alt="Profile Logo" />
           <h1 className="profile__title">Välkommen till AirBean-familjen!</h1>
-          <p>
-            Vänligen logga in för att kunna se din orderhistorik!
-          </p>
+          <p>Vänligen logga in för att kunna se din orderhistorik!</p>
 
           <form onSubmit={handleSubmit}>
             <p className="form-title">Namn</p>

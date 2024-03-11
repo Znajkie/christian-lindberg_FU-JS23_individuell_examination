@@ -1,10 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useShopStore } from '../../Store/counter';
+import { useShopStore } from '../../Store/Store';
 import postOrder from '../API/PostReq';
-import Dots from '../Dots/Dots';
-import './cart.css';
-import { OrderResponseData, ShopStore } from '../../interface/interface'
+import './cart.scss';
+import { OrderResponseData, ShopStore } from '../../interface/interface';
 
 interface CartProps {
   toggleOverlay?: () => void;
@@ -50,8 +49,8 @@ const Cart: React.FC<CartProps> = ({ toggleOverlay }) => {
               <React.Fragment key={cartItem.id}>
                 <li className="cart-item">
                   <div className="item-title">{itemDetail?.title}</div>
+                  <div className="dotted-line"></div>
                   <div className="item-quantity-sum">
-                    <Dots />
                     <div className="quantity-controls">
                       <button
                         onClick={() => incrementItemQuantity(cartItem.id)}
@@ -76,9 +75,7 @@ const Cart: React.FC<CartProps> = ({ toggleOverlay }) => {
         </ul>
         <div className="total-price">
           <span className="total-price__title">Total:</span>
-          <span>
-            <Dots /> {getTotalPrice()} kr
-          </span>
+          <span>{getTotalPrice()} kr</span>
         </div>
         <p className="total-price__p">inkl moms + drönarleverans</p>
         <button className="checkout-button" onClick={handleCheckout}>

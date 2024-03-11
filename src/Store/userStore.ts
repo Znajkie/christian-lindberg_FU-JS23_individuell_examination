@@ -1,17 +1,20 @@
-import {create} from 'zustand';
+import { create } from 'zustand';
 
-interface UserState {
+export interface UserState {
   name: string;
   password: string;
   setName: (name: string) => void;
-  setPassword: (email: string) => void;
+  setPassword: (password: string) => void;
 }
 
-const useUserStore = create<UserState>((set) => ({
+export const useUserStore = create<UserState>((set) => ({
   name: '',
   password: '',
-  setName: (name : string) => set(() => ({ name })),
-  setPassword: (password : string) => set(() => ({ password })),
+  setName: (name) => {
+    console.log('namn', name)
+    set({ name });
+  },
+  setPassword: (password) => set({ password }),
 }));
 
 export default useUserStore;

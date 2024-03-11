@@ -1,5 +1,5 @@
 import DroneImg from '../../assets/droneB.svg'
-import './delivery.css'
+import './delivery.scss'
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';

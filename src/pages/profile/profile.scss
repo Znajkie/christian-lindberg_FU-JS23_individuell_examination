@@ -1,24 +1,12 @@
-@font-face {
-  font-family: 'PT-serif';
-  src: url('../../assets/Font/PT_Serif/PTSerif-Regular.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Work-Sans';
-  src: url('../../assets/Font/Work_Sans/WorkSans-VariableFont_wght.ttf')
-    format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+@import "../../abstracts/variables";
+@import '../../abstracts/fonts';
 
 .profile-wrapper {
   position: relative;
   width: 23.4rem;
   height: 40rem;
   margin-top: -5.8rem;
-  background-color: #2f2926;
+  background-color: $color-secondary
 }
 
 .profile__login {
@@ -27,7 +15,7 @@
   align-items: center;
   justify-content: center;
   justify-content: space-evenly;
-  background-color:#F3E4E1;
+  background-color: $color-primary;
   width: 90%;
   height: 34rem;
 }
@@ -49,21 +37,10 @@
   margin: 0.2rem;
 }
 
-.btn-primary {
+.btn-primary, .btn-secondary {
   cursor: pointer;
   color: white;
-  background-color: #2f2926;
-  border-radius: 2rem;
-  border-style: none;
-  width: 14rem;
-  height: 3.5rem;
-  font-size: 24px;
-}
-
-.btn-secondary {
-  cursor: pointer;
-  color: white;
-  background-color: #2f2926;
+  background-color: $color-secondary;
   border-radius: 2rem;
   border-style: none;
   width: 14rem;
@@ -94,7 +71,7 @@
 
 .checkbox-container input[type='checkbox']:checked + .checkmark {
   background-color: #0e927d;
-  border-color: rgb(0, 0, 0); /* Optional: change border color to match */
+  border-color: rgb(0, 0, 0);
 }
 
 .profile__login .form-title {
@@ -103,6 +80,6 @@
 }
 
 form {
-    width: 22rem;
-    padding: 1rem;
+  width: 22rem;
+  padding: 1rem;
 }

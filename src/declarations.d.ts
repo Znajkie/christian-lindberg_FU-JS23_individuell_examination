@@ -25,4 +25,3 @@ declare module '*.woff2' {
   export default content;
 }
 
-
