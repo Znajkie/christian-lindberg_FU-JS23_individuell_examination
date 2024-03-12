@@ -62,7 +62,7 @@ const OrderStatus = () => {
         <div className="history-nav">
           <NavMenu />
         </div>
-        <section className='history-header'>
+        <section className="history-header">
           <img className="history__img" src={headerImg} alt="Header" />
           <img className="history__img" src={profileImg} alt="Profile" />
           <h2 className="history__name">{name}</h2>
@@ -83,16 +83,28 @@ const OrderStatus = () => {
                     </div>
                   </section>
                   <section className="flex-container">
-                    <p className="total-ordersumma">Total ordersumma</p>
+                    <p className="total-ordersumma">total ordersumma</p>
                     <div className="order-price">
                       <span>{order.total}kr</span>
                     </div>
                   </section>
+                  <div
+                    className={
+                      index === userHistory.length - 1
+                        ? 'line last-line'
+                        : 'line'
+                    }
+                  ></div>
                 </li>
               ))}
               <li className="total-spent-summary">
                 <strong className="order-total">
-                  <span>Totalt spenderat: {totalSpent}kr</span>
+                  <div>
+                    <p>Totalt spenderat:</p>
+                  </div>
+                  <div>
+                    <span>{totalSpent}kr</span>
+                  </div>
                 </strong>
               </li>
             </ul>

@@ -5,37 +5,49 @@
   position: relative;
   width: 23.4rem;
   min-height: 40rem;
-  
   background-color: $color-secondary;
 }
 
-.history__name, .history__epost, .history__section{
+.history__name, .history__epost {
   color:white;
-  font-family: 'Mono-serif';
+  font-family: 'Work-Sans';
 }
 
-h1 {
+.history__section-title {
   font-family: 'PT-serif';
+  color: white;
+  font-size: 22px;
 }
 
 .total-ordersumma, .history__epost, .order-price span {
   color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
 }
 
-.order-date span, .order-nr span {
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.7);
+.order-nr span {
+  font-weight: bold;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.order-date span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .order-total span {
   color: rgba(255, 255, 255, 0.8);
 }
 
+.total-spent-summary {
+  padding-bottom: 5rem;
+}
 .order-wrapper-li {
   display: flex;
   flex-direction: column;
   padding-left: 2rem;
   padding-right: 2rem;
+  font-family: 'Work-Sans';
 }
 
 .order-wrapper-li .flex-container {
@@ -43,7 +55,6 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  padding: 0.2rem;
 }
 
 .history__section-title {
@@ -56,3 +67,22 @@ h1 {
   padding-bottom: 5rem;
 }
 
+.line {
+  border-top: 2px solid #fcfcfc10;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.last-line {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.order-total {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Work-Sans';
+  display: flex;
+  justify-content: space-between;
+  margin-top: -0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
