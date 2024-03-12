@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NavMenu from '../navMenu/NavMenu';
 import headerImg from '../../assets/header.svg';
 import droneImg from '../../assets/drone.svg';
-import useUserStore from '../../Store/userStore'; // Import Zustand store
+import useUserStore from '../../store/userStore';
 
 const HandleSignUp = () => {
   const setName = useUserStore((state) => state.setName);

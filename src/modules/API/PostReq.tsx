@@ -1,22 +1,41 @@
+// const getCartDetails = (cartItems, menuItems) => {
+//   return cartItems.map((cartItem) => {
+//     const itemDetail = menuItems.find(
+//       (menuItem) => menuItem.id === cartItem.id
+//     );
+//     if (!itemDetail) {
+//       throw new Error(
+//         `Item detail not found for cart item with id: ${cartItem.id}`
+//       );
+//     }
+//     return {
+//       name: itemDetail.title,
+//       price: itemDetail.price,
+//     };
+//   });
+// };
 
-const getCartDetails = (cartItems, menuItems) => {
-  return cartItems.map((cartItem) => {
+const getDetails = (cartItems, menuItems) => {
+  const items:any[] = [];
+
+  cartItems.forEach(item => {
+
     const itemDetail = menuItems.find(
-      (menuItem) => menuItem.id === cartItem.id
+      (menuItem) => menuItem.id === item.id
     );
-    if (!itemDetail) {
-      throw new Error(
-        `Item detail not found for cart item with id: ${cartItem.id}`
-      );
+
+    for (let i = 0; i < item.quantity; i++) {
+      items.push({
+        name: itemDetail.title,
+        price: itemDetail.price,
+      });
     }
-    return {
-      name: itemDetail.title,
-      price: itemDetail.price,
-    };
   });
-};
+  return items;
+}
 
 const postOrder = async (
+  token,
   cartItems,
   menuItems,
   onSuccessfulCheckout,
@@ -26,15 +45,14 @@ const postOrder = async (
     'https://airbean-api-xjlcn.ondigitalocean.app/api/beans/order';
 
   try {
-    const orderDetails = getCartDetails(cartItems, menuItems);
-    const localStorageToken = localStorage.getItem('jwt');
+    const orderDetails = getDetails(cartItems, menuItems);
 
     let headers = {
       'Content-Type': 'application/json',
     };
 
-    if ( localStorageToken !== '' && null) {
-      headers['Authorization'] = `Bearer ${localStorageToken}`;
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
     }
 
     const response = await fetch(API_URL, {

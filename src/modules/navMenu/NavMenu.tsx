@@ -28,7 +28,7 @@ const NavMenu = () => {
             <Link to="/about" className="overlay-link">
               Vårt kaffe
             </Link>
-            <Link to="/profile" className="overlay-link">
+            <Link to="/login" className="overlay-link">
               Min profil
             </Link>
             <Link to="/signup" className="overlay-link">

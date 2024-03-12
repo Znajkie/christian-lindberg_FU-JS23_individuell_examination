@@ -1,4 +1,4 @@
-const postLogin = async (username: string, password: string) => {
+export const postLogin = async (username: string, password: string) => {
 
   try {
     const response = await fetch(
@@ -18,12 +18,10 @@ const postLogin = async (username: string, password: string) => {
 
     const data = await response.json();
     const jwt: string = data.token;
-    localStorage.setItem('jwt', jwt);
 
-    window.location.href = '/orderstatus';
+    return jwt;
+  
   } catch (error) {
     console.error('An error occurred:', error);
   }
 };
-
-export default postLogin;

@@ -1,7 +1,7 @@
 import React from 'react';
 import cart from '../../assets/bag.svg';
 import cartbg from '../../assets/cartbg.png';
-import { useShopStore } from '../../Store/Store';
+import { useShopStore } from '../../store/store';
 import { useState } from 'react';
 import Cart from '../cart/Cart';
 import './ShoppingCart.scss';

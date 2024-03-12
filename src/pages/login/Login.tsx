@@ -1,15 +1,19 @@
 import React from 'react';
 import { useState } from 'react';
 import NavMenu from '../../modules/navMenu/NavMenu';
-import postLogin from '../../modules/API/postLogin';
+import { postLogin } from '../../modules/API/postLogin';
 import headerImg from '../../assets/header.svg';
 import droneImg from '../../assets/drone.svg';
-import './profile.scss';
-import useUserStore from '../../Store/userStore';
+import './login.scss';
+import { useUserStore } from '../../store/userStore';
+import useTokenStore from '../../store/token';
+import { useNavigate } from 'react-router-dom';
 
-const Profile: React.FC = () => {
+const Login: React.FC = () => {
   const { name, setName, password, setPassword } = useUserStore();
+  const { token, setToken } = useTokenStore();
   const [gdprConsent, setGdprConsent] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,12 +24,12 @@ const Profile: React.FC = () => {
     }
 
     try {
-      await postLogin(name, password);
-      console.log('Login successful');
+      const authToken = await postLogin(name, password);
+      setToken(authToken);
+      navigate('/orderstatus');
     } catch (error) {
       console.error('Login failed', error);
     }
-    console.log('Login with', name, password, gdprConsent);
   };
 
   return (
@@ -74,4 +78,4 @@ const Profile: React.FC = () => {
   );
 };
 
-export default Profile;
+export default Login;

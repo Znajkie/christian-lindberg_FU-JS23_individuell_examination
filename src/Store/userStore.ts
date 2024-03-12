@@ -7,14 +7,11 @@ export interface UserState {
   setPassword: (password: string) => void;
 }
 
-export const useUserStore = create<UserState>((set) => ({
+export const useUserStore = create<UserState>()((set) => ({
   name: '',
   password: '',
-  setName: (name) => {
-    console.log('namn', name)
-    set({ name });
-  },
-  setPassword: (password) => set({ password }),
+  setName: (e) => set((state) => ({ name: e })),
+  setPassword: (e) => set((state) => ({ password: e })),
 }));
 
 export default useUserStore;

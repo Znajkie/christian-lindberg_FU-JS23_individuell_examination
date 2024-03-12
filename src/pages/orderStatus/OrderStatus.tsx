@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import NavMenu from '../../modules/navMenu/NavMenu';
 import profileImg from '../../assets/Profile.svg';
 import headerImg from '../../assets/header.svg';
 import './orderstatus.scss';
-import {useUserStore} from '../../Store/userStore';
+import { useUserStore } from '../../store/userStore';
+import useTokenStore from '../../store/token';
 
 interface UserHistoryRecord {
+  price: number
   total: number;
   orderNr: string;
   orderDate: string;
@@ -14,54 +15,46 @@ interface UserHistoryRecord {
 
 const OrderStatus = () => {
   const { name, password } = useUserStore();
-  console.log('NAME PASSWORD:', name, password);
+  const { token } = useTokenStore();
+  const [userHistory, setUserHistory] = useState<UserHistoryRecord[] | null>(null);
+  const [totalSpent, setTotalSpent] = useState<number>(0);
 
-  const navigate = useNavigate();
-
-  // Use state to store fetched data
-const [userHistory, setUserHistory] = useState<UserHistoryRecord[] | null>(
-  null
-);
   const [error, setError] = useState('');
 
-const fetchUserHistory = async () => {
-  try {
+  const fetchUserHistory = async () => {
+    try {
+      const response = await fetch(
+        'https://airbean-api-xjlcn.ondigitalocean.app/api/user/history',
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-    const localStorageToken = localStorage.getItem('jwt');
-    const response = await fetch(
-      'https://airbean-api-xjlcn.ondigitalocean.app/api/user/history',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorageToken}`,
-        },
+      if (!response.ok) {
+        throw new Error('Du måste skapa en användare först');
       }
-    );
 
-    if (!response.ok) {
-      throw new Error('Du måste skapa en användare först');
+      const data = await response.json();
+      const total = data.orderHistory.reduce(
+        (acc, order) => acc + order.total,
+        0
+      );
+
+      setTotalSpent(total);
+      setUserHistory(data.orderHistory);
+  
+    } catch (error) {
+      setError(error.message);
     }
-
-    const data = await response.json();
-    setUserHistory(data.orderHistory);
-    console.log('User history data:', data.orderHistory);
-    
-  } catch (error) {
-    setError(error.message);
-    console.error('An error occurred:', error.message);
-    navigate('../signup');
-  }
-};
+  };
 
   useEffect(() => {
-    const localStorageToken = localStorage.getItem('jwt');
-    console.log('TOKEN STATUS', localStorageToken);
-    if (localStorageToken) {
-      fetchUserHistory();
-    }
+    fetchUserHistory();
   }, []);
-
 
   return (
     <>
@@ -69,21 +62,39 @@ const fetchUserHistory = async () => {
         <div className="history-nav">
           <NavMenu />
         </div>
-        <img className="history__img" src={headerImg} alt="Header" />
-        <img className="history__img" src={profileImg} alt="Profile" />
-        <h2 className="history__name">{name}</h2>
-        <p className="history__epost">{password}</p>
+        <section className='history-header'>
+          <img className="history__img" src={headerImg} alt="Header" />
+          <img className="history__img" src={profileImg} alt="Profile" />
+          <h2 className="history__name">{name}</h2>
+          <p className="history__epost">{password}</p>
+        </section>
         <section className="history__section">
           <h2 className="history__section-title">Orderhistorik</h2>
-          {userHistory ? (
+          {userHistory && userHistory.length > 0 ? (
             <ul>
               {userHistory.map((order, index) => (
-                <li key={index}>
-                  <p>Total: {order.total}</p>
-                  <p>Order Nr: {order.orderNr}</p>
-                  <p>Order Date: {order.orderDate}</p>
+                <li className="order-wrapper-li" key={index}>
+                  <section className="flex-container">
+                    <div className="order-nr">
+                      <span>#{order.orderNr}</span>
+                    </div>
+                    <div className="order-date">
+                      <span>{order.orderDate}</span>
+                    </div>
+                  </section>
+                  <section className="flex-container">
+                    <p className="total-ordersumma">Total ordersumma</p>
+                    <div className="order-price">
+                      <span>{order.total}kr</span>
+                    </div>
+                  </section>
                 </li>
               ))}
+              <li className="total-spent-summary">
+                <strong className="order-total">
+                  <span>Totalt spenderat: {totalSpent}kr</span>
+                </strong>
+              </li>
             </ul>
           ) : error ? (
             <p>Error: {error}</p>

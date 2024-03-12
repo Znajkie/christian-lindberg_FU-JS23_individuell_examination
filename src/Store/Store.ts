@@ -23,6 +23,12 @@ interface ShopState {
   setMenuItems: (menuItems: MenuItem[]) => void;
 }
 
+interface CountState {
+  count: number;
+  increment: () => void;
+  decrement: () => void;
+}
+
 export const useShopStore = create<ShopState>((set, get) => ({
   shoppingList: [],
   menuItems: [], // Initialize an empty array for menu items
@@ -92,11 +98,6 @@ export const useShopStore = create<ShopState>((set, get) => ({
   },
 }));
 
-interface CountState {
-  count: number;
-  increment: () => void;
-  decrement: () => void;
-}
 // Counter in Cart
 export const useCountStore = create<CountState>()((set) => ({
   count: 0,

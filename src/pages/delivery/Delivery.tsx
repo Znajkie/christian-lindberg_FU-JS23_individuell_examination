@@ -3,14 +3,22 @@ import './delivery.scss'
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import useTokenStore from '../../store/token';
 
 const Checkout = () => {
+  const { token } = useTokenStore();
+  const isLoggedIn = token !== '';
   const location = useLocation();
   const { eta, orderNr } = location.state || {};
 
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate('/profile');
+    
+    if (isLoggedIn) {
+      navigate('/orderstatus')
+    } else {
+      navigate('/login');
+    }
   };
 
   return (
@@ -27,6 +35,4 @@ const Checkout = () => {
 };
 
 export default Checkout
-
-//   if (!orderNr) return null; 
 

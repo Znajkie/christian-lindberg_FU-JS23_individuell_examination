@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useShopStore } from '../../Store/Store';
+import { useShopStore } from '../../store/store';
+import useTokenStore from '../../store/token';
 import postOrder from '../API/PostReq';
 import './cart.scss';
 import { OrderResponseData, ShopStore } from '../../interface/interface';
@@ -11,16 +12,30 @@ interface CartProps {
 
 const Cart: React.FC<CartProps> = ({ toggleOverlay }) => {
   const navigate = useNavigate();
+  // interface ShopState {
+  //   shoppingList: ShoppingListItem[];
+  //   menuItems: MenuItem[];
+  //   addToShoppingList: (id: string) => void;
+  //   getTotalItemCount: () => number;
+  //   getTotalPrice: () => number;
+  //   incrementItemQuantity: (id: string) => void;
+  //   decrementItemQuantity: (id: string) => void;
+  //   setMenuItems: (menuItems: MenuItem[]) => void;
+  // }
   const {
     shoppingList,
     menuItems,
     getTotalPrice,
     incrementItemQuantity,
     decrementItemQuantity,
-  } = useShopStore() as ShopStore; // Antag att `useShopStore` returnerar `ShopStore`
+  } = useShopStore() as ShopStore;
+  const { token } = useTokenStore();
 
   const handleCheckout = () => {
+    console.log('SHOPPING LIST', shoppingList)
+    console.log('MENU ITEMS', menuItems)
     postOrder(
+      token,
       shoppingList,
       menuItems,
       (data: OrderResponseData) => {

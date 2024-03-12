@@ -4,16 +4,55 @@
 .history-wrapper {
   position: relative;
   width: 23.4rem;
-  height: 40rem;
-  margin-top: -5.8rem;
+  min-height: 40rem;
+  
   background-color: $color-secondary;
 }
 
 .history__name, .history__epost, .history__section{
-  color:white
+  color:white;
+  font-family: 'Mono-serif';
 }
 
 h1 {
   font-family: 'PT-serif';
+}
+
+.total-ordersumma, .history__epost, .order-price span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.order-date span, .order-nr span {
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.order-total span {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.order-wrapper-li {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.order-wrapper-li .flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.2rem;
+}
+
+.history__section-title {
+  text-align: left;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+}
+
+.history-header {
+  padding-bottom: 5rem;
 }
 
