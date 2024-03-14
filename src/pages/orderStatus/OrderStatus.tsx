@@ -5,13 +5,7 @@ import headerImg from '../../assets/header.svg';
 import './orderstatus.scss';
 import { useUserStore } from '../../store/userStore';
 import useTokenStore from '../../store/token';
-
-interface UserHistoryRecord {
-  price: number
-  total: number;
-  orderNr: string;
-  orderDate: string;
-}
+import { UserHistoryRecord } from '../../interface/interface';
 
 const OrderStatus = () => {
   const { name, password } = useUserStore();

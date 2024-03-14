@@ -30,4 +30,12 @@ interface ShopStore {
   decrementItemQuantity: (id: string) => void;
 }
 
-export { CartItem, MenuItem, OrderResponseData, ShopStore, ApiResponse };
+interface UserHistoryRecord {
+  price: number;
+  total: number;
+  orderNr: string;
+  orderDate: string;
+}
+
+
+export { CartItem, MenuItem, OrderResponseData, ShopStore, ApiResponse, UserHistoryRecord };

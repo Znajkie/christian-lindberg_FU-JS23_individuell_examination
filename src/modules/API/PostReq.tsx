@@ -1,20 +1,3 @@
-// const getCartDetails = (cartItems, menuItems) => {
-//   return cartItems.map((cartItem) => {
-//     const itemDetail = menuItems.find(
-//       (menuItem) => menuItem.id === cartItem.id
-//     );
-//     if (!itemDetail) {
-//       throw new Error(
-//         `Item detail not found for cart item with id: ${cartItem.id}`
-//       );
-//     }
-//     return {
-//       name: itemDetail.title,
-//       price: itemDetail.price,
-//     };
-//   });
-// };
-
 const getDetails = (cartItems, menuItems) => {
   const items:any[] = [];
 
@@ -46,7 +29,7 @@ const postOrder = async (
 
   try {
     const orderDetails = getDetails(cartItems, menuItems);
-
+    
     let headers = {
       'Content-Type': 'application/json',
     };

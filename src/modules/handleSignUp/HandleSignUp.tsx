@@ -3,6 +3,7 @@ import NavMenu from '../navMenu/NavMenu';
 import headerImg from '../../assets/header.svg';
 import droneImg from '../../assets/drone.svg';
 import useUserStore from '../../store/userStore';
+import './handleSignUp.scss';
 
 const HandleSignUp = () => {
   const setName = useUserStore((state) => state.setName);
@@ -65,7 +66,7 @@ const HandleSignUp = () => {
                   required
                 />
               </div>
-              <div>
+              <div className="form-wrapper">
                 <p className="form-title">Epost</p>
                 <input
                   type="email"

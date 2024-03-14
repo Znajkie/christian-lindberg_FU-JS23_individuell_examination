@@ -12,16 +12,7 @@ interface CartProps {
 
 const Cart: React.FC<CartProps> = ({ toggleOverlay }) => {
   const navigate = useNavigate();
-  // interface ShopState {
-  //   shoppingList: ShoppingListItem[];
-  //   menuItems: MenuItem[];
-  //   addToShoppingList: (id: string) => void;
-  //   getTotalItemCount: () => number;
-  //   getTotalPrice: () => number;
-  //   incrementItemQuantity: (id: string) => void;
-  //   decrementItemQuantity: (id: string) => void;
-  //   setMenuItems: (menuItems: MenuItem[]) => void;
-  // }
+
   const {
     shoppingList,
     menuItems,
