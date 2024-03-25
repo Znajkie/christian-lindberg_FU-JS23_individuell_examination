@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useShopStore } from '../../store/store';
+import { useShopStore } from '../../store/Store';
 import useTokenStore from '../../store/token';
 import postOrder from '../API/PostReq';
 import './cart.scss';
