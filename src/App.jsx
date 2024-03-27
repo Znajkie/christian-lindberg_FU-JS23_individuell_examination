@@ -6,7 +6,7 @@ import NavMenu from './modules/navMenu/NavMenu';
 import Cart from './modules/cart/Cart';
 import Checkout from './pages/delivery/Delivery';
 import Login from './pages/login/Login';
-import OrderStatus from './pages/orderStatus/OrderStatus';
+import OrderStatus from './pages/orderstatus/OrderStatus';
 import HandleSignUp from './modules/handleSignUp/HandleSignUp';
 import './App.scss';
 
