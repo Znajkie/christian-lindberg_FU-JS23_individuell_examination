@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useShopStore } from '../../store/store';
-import { useCountStore } from '../../store/store';
+import { useShopStore } from '../../store/Store';
+import { useCountStore } from '../../store/Store';
 import header from '../../assets/header.svg';
 import footer from '../../assets/footer.svg';
 import addButton from '../../assets/add.svg';
