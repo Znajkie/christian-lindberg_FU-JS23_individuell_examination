@@ -9,7 +9,7 @@ import './datafetcher.scss';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';
 import { ApiResponse } from '../../interface/interface';
 
-const API_URL = 'https://airbean-api-xjlcn.ondigitalocean.app/api/beans';
+const API_URL = 'https://airbean-9pcyw.ondigitalocean.app/api/beans';
 
 const DataFetcher: React.FC = () => {
   const [data, setData] = useState<ApiResponse | null>(null);

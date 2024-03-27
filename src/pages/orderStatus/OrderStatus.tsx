@@ -18,7 +18,7 @@ const OrderStatus = () => {
   const fetchUserHistory = async () => {
     try {
       const response = await fetch(
-        'https://airbean-api-xjlcn.ondigitalocean.app/api/user/history',
+        'https://airbean-9pcyw.ondigitalocean.app/api/user/history',
         {
           method: 'GET',
           headers: {

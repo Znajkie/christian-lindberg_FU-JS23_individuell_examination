@@ -2,7 +2,7 @@ export const postLogin = async (username: string, password: string) => {
 
   try {
     const response = await fetch(
-      'https://airbean-api-xjlcn.ondigitalocean.app/api/user/login',
+      'https://airbean-9pcyw.ondigitalocean.app/api/user/login',
       {
         method: 'POST',
         headers: {

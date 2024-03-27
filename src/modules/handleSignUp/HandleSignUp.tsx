@@ -16,7 +16,7 @@ const HandleSignUp = () => {
 
     try {
       const response = await fetch(
-        'https://airbean-api-xjlcn.ondigitalocean.app/api/user/signup',
+        'https://airbean-9pcyw.ondigitalocean.app/api/user/signup',
         {
           method: 'POST',
           headers: {

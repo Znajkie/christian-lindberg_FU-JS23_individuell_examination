@@ -24,8 +24,7 @@ const postOrder = async (
   onSuccessfulCheckout,
   onFailedCheckout
 ) => {
-  const API_URL =
-    'https://airbean-api-xjlcn.ondigitalocean.app/api/beans/order';
+  const API_URL = 'https://airbean-9pcyw.ondigitalocean.app/api/beans/order';
 
   try {
     const orderDetails = getDetails(cartItems, menuItems);
